@@ -1,1 +1,133 @@
-{}
+[
+  {
+    "id": "platform",
+    "question": "Apakah Anda memiliki preferensi platform untuk menjalankan kampanye?",
+    "data": [
+      {
+        "id": "instagram",
+        "label": "Instagram",
+        "result": "Fokus pada konten visual, reels, dan story interaktif."
+      },
+      {
+        "id": "facebook",
+        "label": "Facebook",
+        "result": "Buat posting panjang, video edukatif, dan segmentasi umur."
+      },
+      {
+        "id": "tiktok",
+        "label": "TikTok",
+        "result": "Gunakan video pendek dengan tren terbaru dan hashtag populer."
+      },
+      {
+        "id": "google-ads",
+        "label": "Google Ads",
+        "result": "Buat iklan teks dan display dengan kata kunci spesifik."
+      },
+      {
+        "id": "linkedin",
+        "label": "LinkedIn",
+        "result": "Fokus pada konten profesional dan studi kasus."
+      },
+      {
+        "id": "youtube",
+        "label": "YouTube",
+        "result": "Fokus pada konten profesional dan studi kasus."
+      }
+    ]
+  },
+  {
+    "id": "target-audiens",
+    "question": "Siapa target audiens utama dari kampanye ini?",
+    "data": [
+      {
+        "label": "Remaja (13-18)",
+        "platform": ["tikTok", "instagram"],
+        "result": "Gunakan konten ringan dan tren kekinian."
+      },
+      {
+        "label": "Dewasa Muda (19-29)",
+        "platform": ["instagram", "youtube"],
+        "result": "Gunakan konten video inspiratif."
+      },
+      {
+        "label": "Dewasa (30-45)",
+        "platform": ["facebook", "linkedin"],
+        "result": "Gunakan konten edukatif dan profesional."
+      },
+      {
+        "label": "Profesional (45+)",
+        "platform": ["linkedin", "email-marketing"],
+        "result": "Gunakan konten formal dan data-driven."
+      },
+      {
+        "label": "Keluarga",
+        "platform": ["facebook", "youtube"],
+        "result": "Gunakan konten visual dan tips sehari-hari."
+      }
+    ]
+  },
+  {
+    "id": "anggaran",
+    "question": "Berapa besar anggaran yang Anda siapkan untuk kampanye iklan ini?",
+    "data": [
+      {
+        "label": "<1 juta",
+        "platform": ["instagram", "tiktok"],
+        "result": "Gunakan metode organik dan kolaborasi dengan micro-influencer."
+      },
+      {
+        "label": "1-5 juta",
+        "platform": ["instagram", "tiktok"],
+        "result": "Campuran metode organik dan iklan berbayar pada satu platform."
+      },
+      {
+        "label": "5-10 juta",
+        "platform": ["instagram", "facebook", "google-ads"],
+        "result": "Multiplatform dengan fokus pada dua platform utama."
+      },
+      {
+        "label": ">10 juta",
+        "platform": [
+          "instagram",
+          "tiktok",
+          "google-ads",
+          "linkedin",
+          "facebook",
+          "youtube"
+        ],
+        "result": "Gunakan kampanye lintas platform dan optimalkan dengan A/B testing."
+      }
+    ]
+  },
+  {
+    "id": "tujuan",
+    "question": "Apa tujuan utama dari kampanye iklan Anda?",
+    "data": [
+      {
+        "label": "Brand Awareness",
+        "platform": ["instagram", "tiktok"],
+        "result": "Gunakan konten visual/video pendek untuk menjangkau audiens lebih luas."
+      },
+      {
+        "label": "Engagement",
+        "platform": ["instagram", "facebook"],
+        "result": "Fokus pada interaksi audiens seperti polling dan Q&A."
+      },
+      {
+        "label": "Conversion",
+        "platform": ["google-ads", "facebook"],
+        "result": "Gunakan CTA kuat dan iklan terukur."
+      },
+      {
+        "label": "Traffic ke Website",
+        "platform": ["google-ads", "facebook"],
+        "result": "Gunakan iklan berbayar dengan link langsung dan optimasi SEO."
+      },
+      {
+        "label": "Lead Generation",
+        "platform": ["linkedin", "email-marketing"],
+        "result": "Gunakan form interaktif dan insentif seperti diskon/e-book."
+      }
+    ]
+  }
+]
