@@ -40,12 +40,25 @@ const QuestionsStep: React.FC<QuestionsStepProps> = ({ onBack }) => {
     }
   };
 
-  const submitHandler = (values: IQuizForm) => {
+  const submitHandler = async (values: IQuizForm) => {
     if (!isLast) {
       setStep((prev) => prev + 1);
       return;
     } else {
-      console.log(values);
+      try {
+        const res = await fetch("/api/calculate", {
+          body: JSON.stringify(values),
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        const resJson = await res.json();
+        console.log("🚀 ~ submitHandler ~ resJson:", resJson);
+      } catch (error) {
+        console.log("🚀 ~ submitHandler ~ error:", error);
+        //
+      }
     }
   };
 

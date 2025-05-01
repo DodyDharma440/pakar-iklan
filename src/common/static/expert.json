@@ -6,31 +6,37 @@
       {
         "id": "instagram",
         "label": "Instagram",
+        "platform": [],
         "result": "Fokus pada konten visual, reels, dan story interaktif."
       },
       {
         "id": "facebook",
         "label": "Facebook",
+        "platform": [],
         "result": "Buat posting panjang, video edukatif, dan segmentasi umur."
       },
       {
         "id": "tiktok",
         "label": "TikTok",
+        "platform": [],
         "result": "Gunakan video pendek dengan tren terbaru dan hashtag populer."
       },
       {
         "id": "google-ads",
         "label": "Google Ads",
+        "platform": [],
         "result": "Buat iklan teks dan display dengan kata kunci spesifik."
       },
       {
         "id": "linkedin",
         "label": "LinkedIn",
+        "platform": [],
         "result": "Fokus pada konten profesional dan studi kasus."
       },
       {
         "id": "youtube",
         "label": "YouTube",
+        "platform": [],
         "result": "Fokus pada konten profesional dan studi kasus."
       }
     ]
@@ -41,27 +47,42 @@
     "data": [
       {
         "label": "Remaja (13-18)",
-        "platform": ["tikTok", "instagram"],
+        "platform": [
+          { "name": "tiktok", "score": 1 },
+          { "name": "instagram", "score": 1 }
+        ],
         "result": "Gunakan konten ringan dan tren kekinian."
       },
       {
         "label": "Dewasa Muda (19-29)",
-        "platform": ["instagram", "youtube"],
+        "platform": [
+          { "name": "instagram", "score": 1 },
+          { "name": "youtube", "score": 1 }
+        ],
         "result": "Gunakan konten video inspiratif."
       },
       {
         "label": "Dewasa (30-45)",
-        "platform": ["facebook", "linkedin"],
+        "platform": [
+          { "name": "facebook", "score": 1 },
+          { "name": "linkedin", "score": 1 }
+        ],
         "result": "Gunakan konten edukatif dan profesional."
       },
       {
         "label": "Profesional (45+)",
-        "platform": ["linkedin", "email-marketing"],
+        "platform": [
+          { "name": "linkedin", "score": 1 },
+          { "name": "email-marketing", "score": 1 }
+        ],
         "result": "Gunakan konten formal dan data-driven."
       },
       {
         "label": "Keluarga",
-        "platform": ["facebook", "youtube"],
+        "platform": [
+          { "name": "facebook", "score": 1 },
+          { "name": "youtube", "score": 1 }
+        ],
         "result": "Gunakan konten visual dan tips sehari-hari."
       }
     ]
@@ -72,28 +93,38 @@
     "data": [
       {
         "label": "<1 juta",
-        "platform": ["instagram", "tiktok"],
+        "platform": [
+          { "name": "instagram", "score": 1 },
+          { "name": "tiktok", "score": 1 }
+        ],
         "result": "Gunakan metode organik dan kolaborasi dengan micro-influencer."
       },
       {
         "label": "1-5 juta",
-        "platform": ["instagram", "tiktok"],
+        "platform": [
+          { "name": "instagram", "score": 1 },
+          { "name": "tiktok", "score": 1 }
+        ],
         "result": "Campuran metode organik dan iklan berbayar pada satu platform."
       },
       {
         "label": "5-10 juta",
-        "platform": ["instagram", "facebook", "google-ads"],
+        "platform": [
+          { "name": "instagram", "score": 1 },
+          { "name": "facebook", "score": 1 },
+          { "name": "google-ads", "score": 1 }
+        ],
         "result": "Multiplatform dengan fokus pada dua platform utama."
       },
       {
         "label": ">10 juta",
         "platform": [
-          "instagram",
-          "tiktok",
-          "google-ads",
-          "linkedin",
-          "facebook",
-          "youtube"
+          { "name": "instagram", "score": 1 },
+          { "name": "tiktok", "score": 1 },
+          { "name": "google-ads", "score": 1 },
+          { "name": "linkedin", "score": 1 },
+          { "name": "facebook", "score": 1 },
+          { "name": "youtube", "score": 1 }
         ],
         "result": "Gunakan kampanye lintas platform dan optimalkan dengan A/B testing."
       }
@@ -105,27 +136,42 @@
     "data": [
       {
         "label": "Brand Awareness",
-        "platform": ["instagram", "tiktok"],
+        "platform": [
+          { "name": "instagram", "score": 2 },
+          { "name": "tiktok", "score": 2 }
+        ],
         "result": "Gunakan konten visual/video pendek untuk menjangkau audiens lebih luas."
       },
       {
         "label": "Engagement",
-        "platform": ["instagram", "facebook"],
+        "platform": [
+          { "name": "instagram", "score": 2 },
+          { "name": "facebook", "score": 2 }
+        ],
         "result": "Fokus pada interaksi audiens seperti polling dan Q&A."
       },
       {
         "label": "Conversion",
-        "platform": ["google-ads", "facebook"],
+        "platform": [
+          { "name": "google-ads", "score": 2 },
+          { "name": "facebook", "score": 2 }
+        ],
         "result": "Gunakan CTA kuat dan iklan terukur."
       },
       {
         "label": "Traffic ke Website",
-        "platform": ["google-ads", "facebook"],
+        "platform": [
+          { "name": "google-ads", "score": 2 },
+          { "name": "facebook", "score": 2 }
+        ],
         "result": "Gunakan iklan berbayar dengan link langsung dan optimasi SEO."
       },
       {
         "label": "Lead Generation",
-        "platform": ["linkedin", "email-marketing"],
+        "platform": [
+          { "name": "linkedin", "score": 2 },
+          { "name": "email-marketing", "score": 2 }
+        ],
         "result": "Gunakan form interaktif dan insentif seperti diskon/e-book."
       }
     ]
