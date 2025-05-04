@@ -1,4 +1,4 @@
-import { IQuizForm } from "@/modules/questionnaire/interfaces";
+import { IQuizForm, IResult } from "@/modules/questionnaire/interfaces";
 import { NextApiRequest, NextApiResponse } from "next";
 import expertsData from "@/common/static/expert.json";
 
@@ -38,11 +38,73 @@ const handler = (req: NextApiRequest, res: NextApiResponse) => {
       }))
       .filter((r) => r.score === highestScore);
 
-    let reason = "";
+    const getPlatformResult = (platform: string) => {
+      return expertsData[0].data.find((d) => (d as any).id === platform);
+    };
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    if (highResults.some((h) => h.platform === (userPreferred as any)?.id)) {
-      reason = `${userPlatform} sudah cocok menjadi pilihan platform Anda!`;
+    const getAnswerResult = (answer: string, id: string, platform?: string) => {
+      const expertData = expertsData.find((e) => e.id === id);
+      return (
+        expertData?.data.find((d) => {
+          return d.label === answer && !platform
+            ? true
+            : d.platform.some((p) => p.name === platform);
+        })?.result ?? ""
+      );
+    };
+
+    const handleTodo = () => {
+      let suggestion = `Berdasarkan jawaban yang Anda isi, berikut adalah saran yang dapat dilakukan. <br /> <ul style="list-style: inside;">`;
+      body.items.forEach((item) => {
+        if (item.id !== "platform") {
+          const res = getAnswerResult(item.selected, item.id);
+          suggestion += `<li>${res} (${item.selected})</li>`;
+        }
+      });
+      reason.others.push(`<div>${suggestion}</ul></div>`);
+    };
+
+    const reason: IResult = {
+      main: "",
+      others: [],
+    };
+
+    const userHighResult = highResults.find(
+      (h) => h.platform === (userPreferred as any)?.id
+    );
+    reason.main = `${userPlatform} <b>${
+      userHighResult ? "sudah" : "belum"
+    } cocok</b> menjadi pilihan platform Anda!`;
+
+    if (userHighResult) {
+      const platformRes = getPlatformResult(userHighResult.platform);
+      reason.main += ` ${platformRes?.result}`;
+      reason.main = `<p>${reason.main}</p>`;
+      handleTodo();
+    }
+
+    let suggestion = `${
+      userHighResult
+        ? `Selain ${userPlatform}, Anda bisa menggunakan platform ini.`
+        : "Platform yang disarankan adalah: "
+    } <br /> <ul style="list-style: inside;">`;
+    const handleSuggest = (h: (typeof highResults)[number]) => {
+      const platformLabel =
+        expertsData[0].data.find((p) => (p as any).id === h.platform)?.label ??
+        h.platform;
+      if (h.platform !== userHighResult?.platform) {
+        let _reason = `${platformLabel} - `;
+        const platformRes = getPlatformResult(h.platform);
+        _reason += ` ${platformRes?.result}`;
+        suggestion += `<li>${_reason}</li>`;
+      }
+    };
+
+    highResults.forEach(handleSuggest);
+    reason.others.push(suggestion);
+
+    if (!userHighResult) {
+      handleTodo();
     }
 
     res.json({

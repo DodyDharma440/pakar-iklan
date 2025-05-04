@@ -6,3 +6,8 @@ export interface IQuizFormItem {
 export interface IQuizForm {
   items: IQuizFormItem[];
 }
+
+export interface IResult {
+  main: string;
+  others: string[];
+}

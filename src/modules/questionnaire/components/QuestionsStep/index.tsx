@@ -1,10 +1,10 @@
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import expertsData from "@/common/static/expert.json";
 import { useQuizStep } from "../../contexts";
 import { Button } from "@/components/ui/button";
 import { HiArrowLeft } from "react-icons/hi2";
 import { useFormContext, useWatch } from "react-hook-form";
-import { IQuizForm } from "../../interfaces";
+import { IQuizForm, IResult } from "../../interfaces";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import {
@@ -13,6 +13,7 @@ import {
   FormItem,
   FormLabel,
 } from "@/components/ui/form";
+import { Card, CardContent } from "@/components/ui/card";
 
 type QuestionsStepProps = {
   onBack: () => void;
@@ -22,6 +23,7 @@ const QuestionsStep: React.FC<QuestionsStepProps> = ({ onBack }) => {
   const { step, setStep } = useQuizStep();
   const { control, reset, handleSubmit } = useFormContext<IQuizForm>();
   const values = useWatch({ control, name: `items` });
+  const [result, setResult] = useState<IResult | null>(null);
 
   const stepData = useMemo(() => {
     return expertsData.find((_, i) => i === step - 1);
@@ -54,13 +56,18 @@ const QuestionsStep: React.FC<QuestionsStepProps> = ({ onBack }) => {
           },
         });
         const resJson = await res.json();
-        console.log("🚀 ~ submitHandler ~ resJson:", resJson);
+        setResult(resJson.data.reason);
       } catch (error) {
         console.log("🚀 ~ submitHandler ~ error:", error);
-        //
       }
     }
   };
+
+  useEffect(() => {
+    if (step !== 4) {
+      setResult(null);
+    }
+  }, [step]);
 
   return (
     <form onSubmit={handleSubmit(submitHandler)}>
@@ -116,6 +123,25 @@ const QuestionsStep: React.FC<QuestionsStepProps> = ({ onBack }) => {
               {isLast ? "Lihat Rekomendasi" : "Selanjutnya"}
             </Button>
           </div>
+        </div>
+      ) : null}
+
+      {result ? (
+        <div className="my-4 flex flex-col gap-4">
+          <Card>
+            <CardContent>
+              <div dangerouslySetInnerHTML={{ __html: result.main }} />
+            </CardContent>
+          </Card>
+          {result.others.map((res, i) => {
+            return (
+              <Card key={i}>
+                <CardContent>
+                  <div dangerouslySetInnerHTML={{ __html: res }} />
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
       ) : null}
     </form>

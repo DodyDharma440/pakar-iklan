@@ -38,6 +38,12 @@
         "label": "YouTube",
         "platform": [],
         "result": "Fokus pada konten profesional dan studi kasus."
+      },
+      {
+        "id": "email-marketing",
+        "label": "Email Marketing",
+        "platform": [],
+        "result": "Fokus pada kampanye email yang dipersonalisasi dengan segmentasi audiens untuk meningkatkan engagement dan konversi."
       }
     ]
   },
