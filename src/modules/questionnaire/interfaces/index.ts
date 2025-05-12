@@ -1,6 +1,6 @@
 export interface IQuizFormItem {
   id: string;
-  selected: string;
+  selected: string[];
 }
 
 export interface IQuizForm {

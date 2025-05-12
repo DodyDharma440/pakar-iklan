@@ -2,6 +2,7 @@
   {
     "id": "platform",
     "question": "Apakah Anda memiliki preferensi platform untuk menjalankan kampanye?",
+    "type": "single",
     "data": [
       {
         "id": "instagram",
@@ -104,6 +105,7 @@
   {
     "id": "target-audiens",
     "question": "Siapa target audiens utama dari kampanye ini?",
+    "type": "multiple",
     "data": [
       {
         "label": "Remaja (13-18)",
@@ -150,6 +152,7 @@
   {
     "id": "anggaran",
     "question": "Berapa besar anggaran yang Anda siapkan untuk kampanye iklan ini?",
+    "type": "single",
     "data": [
       {
         "label": "<1 juta",
@@ -193,6 +196,7 @@
   {
     "id": "tujuan",
     "question": "Apa tujuan utama dari kampanye iklan Anda?",
+    "type": "multiple",
     "data": [
       {
         "label": "Brand Awareness",

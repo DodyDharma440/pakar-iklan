@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/form";
 import { Card, CardContent } from "@/components/ui/card";
 import { Loader2 } from "lucide-react";
+import { Checkbox } from "@/components/ui/checkbox";
 
 type QuestionsStepProps = {
   onBack: () => void;
@@ -92,14 +93,55 @@ const QuestionsStep: React.FC<QuestionsStepProps> = ({ onBack }) => {
       {stepData ? (
         <div>
           <div className="py-4">
-            <FormField
-              control={control}
-              name={`items.${step - 1}.selected`}
-              key={step}
-              render={({ field }) => {
-                return (
-                  <FormItem>
-                    <FormLabel className="mb-4">{stepData.question}</FormLabel>
+            <FormItem>
+              <FormLabel className="mb-4">{stepData.question}</FormLabel>
+              {stepData.type === "multiple" ? (
+                <FormField
+                  control={control}
+                  name={`items.${step - 1}.selected`}
+                  key={step}
+                  render={({ field }) => {
+                    return (
+                      <>
+                        {stepData.data.map((item) => {
+                          const isChecked = field.value.includes(item.label);
+
+                          return (
+                            <FormControl key={item.label}>
+                              <div className="flex items-center space-x-2 mb-2">
+                                <Checkbox
+                                  checked={isChecked}
+                                  onCheckedChange={(e) =>
+                                    field.onChange(
+                                      e
+                                        ? [...field.value, item.label]
+                                        : field.value.filter(
+                                            (v) => v !== item.label
+                                          )
+                                    )
+                                  }
+                                  value={item.label}
+                                  id={item.label}
+                                />
+                                <Label htmlFor={item.label}>{item.label}</Label>
+                              </div>
+                            </FormControl>
+                          );
+                        })}
+                      </>
+                    );
+                  }}
+                />
+              ) : null}
+            </FormItem>
+
+            {stepData.type === "single" ? (
+              <FormField
+                control={control}
+                name={`items.${step - 1}.selected.0`}
+                key={step}
+                render={({ field }) => {
+                  return (
                     <FormControl>
                       <RadioGroup
                         {...field}
@@ -123,14 +165,14 @@ const QuestionsStep: React.FC<QuestionsStepProps> = ({ onBack }) => {
                         })}
                       </RadioGroup>
                     </FormControl>
-                  </FormItem>
-                );
-              }}
-            />
+                  );
+                }}
+              />
+            ) : null}
           </div>
           <div className="flex justify-end gap-3">
             <Button
-              disabled={!values[step - 1]?.selected || isLoading}
+              disabled={!values[step - 1]?.selected.length || isLoading}
               type="submit"
             >
               {isLoading ? <Loader2 className="animate-spin" /> : null}

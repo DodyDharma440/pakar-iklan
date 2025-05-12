@@ -18,28 +18,30 @@ const getPlatformResult = (platform: string) => {
 
 const getAnswerResult = (answer: string, id: string, platform?: string) => {
   const expertData = expertsData.find((e) => e.id === id);
-  return (
+
+  const result =
     expertData?.data.find((d) => {
-      return d.label === answer && !platform
+      return answer === d.label && !platform
         ? true
         : d.platform.some((p) => p.name === platform);
-    })?.result ?? ""
-  );
+    })?.result ?? "";
+
+  return result;
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === "POST") {
     const body = req.body as IQuizForm;
     const userPlatform = body.items.find((i) => i.id === "platform")?.selected;
-    const userPreferred = expertsData[0].data.find(
-      (p) => p.label === userPlatform
+    const userPreferred = expertsData[0].data.find((p) =>
+      userPlatform?.includes(p.label)
     );
     let platformResults: Array<{ name: string; score: number }> = [];
 
     body.items.forEach((item) => {
       const index = expertsData.findIndex((e) => e.id === item.id);
-      const answer = expertsData[index].data.find(
-        (d) => d.label === item.selected
+      const answer = expertsData[index].data.find((d) =>
+        item.selected.includes(d.label)
       );
       if (answer && Object.hasOwn(answer, "platform")) {
         platformResults = [...platformResults, ...answer.platform];
@@ -73,10 +75,12 @@ const handler = (req: NextApiRequest, res: NextApiResponse) => {
       let suggestion = `Berdasarkan jawaban yang Anda isi, berikut adalah saran yang dapat dilakukan. <br /> <ul class="list-disc pl-4">`;
       body.items.forEach((item) => {
         if (item.id !== "platform") {
-          const res = getAnswerResult(item.selected, item.id);
-          suggestion += `<li>${res} ${prefixes[item.id]} <b>${
-            item.selected
-          }</b></li>`;
+          item.selected.forEach((selected) => {
+            const res = getAnswerResult(selected, item.id);
+            suggestion += `<li>${res} ${
+              prefixes[item.id]
+            } <b>${selected}</b></li>`;
+          });
         }
       });
       reason.others.push(`<div>${suggestion}</ul></div>`);
@@ -120,19 +124,22 @@ const handler = (req: NextApiRequest, res: NextApiResponse) => {
           )
           .map((p) => ({
             ...p,
-            isChecked: body.items.some((i) => i.selected === p.label),
+            isChecked: body.items.some((i) => i.selected.includes(p.label)),
           }));
-        const isMatch = withPlatform.some((p) => p.isChecked);
-        reason.main += `<li>${prefixes[data.id]} ${
-          withPlatform.length
-            ? `${addAnd(
-                withPlatform.map((p) => p.label).join(", "),
-                "atau"
-              )} <span class="font-bold ${
-                isMatch ? "text-green-500" : "text-red-500"
-              }">(${isMatch ? "Sudah Sesuai" : "Belum Sesuai"})</span>`
-            : ""
-        } </li>`;
+
+        if (withPlatform.length) {
+          const isMatch = withPlatform.some((p) => p.isChecked);
+          reason.main += `<li>${prefixes[data.id]} ${
+            withPlatform.length
+              ? `${addAnd(
+                  withPlatform.map((p) => p.label).join(", "),
+                  "atau"
+                )} <span class="font-bold ${
+                  isMatch ? "text-green-500" : "text-red-500"
+                }">(${isMatch ? "Sudah Sesuai" : "Belum Sesuai"})</span>`
+              : ""
+          } </li>`;
+        }
       });
       reason.main += "</ul>";
     }

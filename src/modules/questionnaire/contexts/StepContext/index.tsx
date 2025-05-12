@@ -30,7 +30,7 @@ export const StepProvider: React.FC<StepProviderProps> = ({ children }) => {
     defaultValues: {
       items: expertsData.map((e) => ({
         id: e.id,
-        selected: "",
+        selected: e.type === "single" ? [""] : [],
       })),
     },
   });
