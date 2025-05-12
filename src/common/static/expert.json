@@ -7,43 +7,97 @@
         "id": "instagram",
         "label": "Instagram",
         "platform": [],
-        "result": "Fokus pada konten visual, reels, dan story interaktif."
+        "result": "Fokus pada konten visual, reels, dan story interaktif.",
+        "details": [
+          "Feed: Iklan yang tampil di linimasa utama pengguna Instagram.",
+          "Stories: Iklan vertikal yang muncul di antara stories pengguna lain.",
+          "Reels: Iklan video pendek yang muncul di antara atau setelah konten reels.",
+          "Explore Page: Iklan yang tampil di halaman eksplorasi (penelusuran).",
+          "IG Shop: Iklan produk yang muncul di tab belanja Instagram.",
+          "Profile Feed: Iklan yang muncul saat pengguna mengunjungi profil orang lain."
+        ]
       },
       {
         "id": "facebook",
         "label": "Facebook",
         "platform": [],
-        "result": "Buat posting panjang, video edukatif, dan segmentasi umur."
+        "result": "Buat posting panjang, video edukatif, dan segmentasi umur.",
+        "details": [
+          "Feed: Iklan yang muncul di beranda utama pengguna.",
+          "Stories: Iklan vertikal yang muncul di antara stories pengguna.",
+          "Marketplace: Iklan yang tampil di halaman Facebook Marketplace.",
+          "Reels: Iklan video pendek di konten reels.",
+          "Video Feed: Iklan video di bagian khusus konten video.",
+          "In-Stream Video: Iklan di dalam video yang sedang diputar (seperti jeda iklan).",
+          "Right Column: Iklan yang muncul di sisi kanan tampilan desktop.",
+          "Search Results: Iklan yang muncul di hasil pencarian dalam Facebook.",
+          "Messenger Inbox: Iklan yang tampil dalam kotak masuk Messenger."
+        ]
       },
       {
         "id": "tiktok",
         "label": "TikTok",
         "platform": [],
-        "result": "Gunakan video pendek dengan tren terbaru dan hashtag populer."
+        "result": "Gunakan video pendek dengan tren terbaru dan hashtag populer.",
+        "details": [
+          "In-Feed Ads: Iklan video yang muncul di antara video pengguna saat scroll.",
+          "Top View Ads: Iklan pertama yang muncul saat aplikasi dibuka.",
+          "Brand Takeover: Iklan layar penuh yang tampil saat aplikasi dibuka.",
+          "Branded Hashtag Challenge: Mendorong pengguna membuat konten dengan hashtag tertentu.",
+          "Branded Effects: Efek filter atau AR bertema brand.",
+          "Search Ads: Iklan yang muncul saat pengguna melakukan pencarian di TikTok."
+        ]
       },
       {
         "id": "google-ads",
         "label": "Google Ads",
         "platform": [],
-        "result": "Buat iklan teks dan display dengan kata kunci spesifik."
+        "result": "Buat iklan teks dan display dengan kata kunci spesifik.",
+        "details": [
+          "Search Ads: Iklan teks yang muncul di hasil pencarian Google berdasarkan kata kunci.",
+          "Display Ads: Iklan gambar/banner yang muncul di situs partner jaringan Google Display Network.",
+          "Gmail Ads: Iklan yang muncul di tab promosi dan sosial di Gmail.",
+          "Shopping Ads: Iklan produk dengan gambar, harga, dan nama toko yang muncul di Google Shopping.",
+          "YouTube Ads: Format iklan video yang ditayangkan di platform YouTube.",
+          "App Promotion Ads: Iklan untuk mempromosikan aplikasi di Play Store dan platform lain milik Google."
+        ]
       },
       {
         "id": "linkedin",
         "label": "LinkedIn",
         "platform": [],
-        "result": "Fokus pada konten profesional dan studi kasus."
+        "result": "Fokus pada konten profesional dan studi kasus.",
+        "details": [
+          "Sponsored Content (Feed): Konten promosi yang muncul di linimasa LinkedIn.",
+          "Message Ads (Inbox): Iklan dalam bentuk pesan langsung ke inbox pengguna.",
+          "Conversation Ads: Versi interaktif dari Message Ads dengan pilihan respon.",
+          "Text Ads (Sidebar): Iklan teks kecil yang muncul di sisi kanan layar desktop.",
+          "Dynamic Ads: Iklan yang menyesuaikan secara otomatis dengan data pengguna.",
+          "Video Ads: Iklan berbentuk video yang muncul di feed.",
+          "Carousel Ads: Iklan dengan beberapa slide yang dapat digeser."
+        ]
       },
       {
         "id": "youtube",
         "label": "YouTube",
         "platform": [],
-        "result": "Fokus pada konten profesional dan studi kasus."
+        "result": "Fokus pada konten profesional dan studi kasus.",
+        "details": [
+          "Skippable In-Stream Ads: Iklan video yang bisa dilewati setelah 5 detik.",
+          "Non-Skippable In-Stream Ads: Iklan video yang tidak bisa dilewati (durasi maksimal 15 detik).",
+          "Bumper Ads: Iklan video sangat pendek (6 detik) dan tidak bisa dilewati.",
+          "Overlay Ads: Banner semi-transparan di bawah video (desktop).",
+          "Display Ads: Iklan banner yang muncul di sisi kanan video (desktop).",
+          "In-Feed Video Ads: Iklan video yang muncul di hasil pencarian atau beranda YouTube.",
+          "Masthead Ads: Iklan banner besar di bagian atas homepage YouTube."
+        ]
       },
       {
         "id": "email-marketing",
         "label": "Email Marketing",
         "platform": [],
-        "result": "Fokus pada kampanye email yang dipersonalisasi dengan segmentasi audiens untuk meningkatkan engagement dan konversi."
+        "result": "Fokus pada kampanye email yang dipersonalisasi dengan segmentasi audiens untuk meningkatkan engagement dan konversi.",
+        "details": []
       }
     ]
   },

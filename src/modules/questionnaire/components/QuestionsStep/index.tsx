@@ -14,6 +14,7 @@ import {
   FormLabel,
 } from "@/components/ui/form";
 import { Card, CardContent } from "@/components/ui/card";
+import { Loader2 } from "lucide-react";
 
 type QuestionsStepProps = {
   onBack: () => void;
@@ -21,6 +22,7 @@ type QuestionsStepProps = {
 
 const QuestionsStep: React.FC<QuestionsStepProps> = ({ onBack }) => {
   const { step, setStep } = useQuizStep();
+  const [isLoading, setIsLoading] = useState(false);
   const { control, reset, handleSubmit } = useFormContext<IQuizForm>();
   const values = useWatch({ control, name: `items` });
   const [result, setResult] = useState<IResult | null>(null);
@@ -33,10 +35,15 @@ const QuestionsStep: React.FC<QuestionsStepProps> = ({ onBack }) => {
     return step - 1 === expertsData.length - 1;
   }, [step]);
 
+  const handleReset = () => {
+    onBack();
+    reset();
+    setStep(1);
+  };
+
   const handleBack = () => {
     if (step === 1) {
-      onBack();
-      reset();
+      handleReset();
     } else {
       setStep((prev) => prev - 1);
     }
@@ -47,6 +54,7 @@ const QuestionsStep: React.FC<QuestionsStepProps> = ({ onBack }) => {
       setStep((prev) => prev + 1);
       return;
     } else {
+      setIsLoading(true);
       try {
         const res = await fetch("/api/calculate", {
           body: JSON.stringify(values),
@@ -57,8 +65,10 @@ const QuestionsStep: React.FC<QuestionsStepProps> = ({ onBack }) => {
         });
         const resJson = await res.json();
         setResult(resJson.data.reason);
+        setIsLoading(false);
       } catch (error) {
         console.log("🚀 ~ submitHandler ~ error:", error);
+        setIsLoading(false);
       }
     }
   };
@@ -118,10 +128,19 @@ const QuestionsStep: React.FC<QuestionsStepProps> = ({ onBack }) => {
               }}
             />
           </div>
-          <div className="flex justify-end">
-            <Button disabled={!values[step - 1]?.selected} type="submit">
+          <div className="flex justify-end gap-3">
+            <Button
+              disabled={!values[step - 1]?.selected || isLoading}
+              type="submit"
+            >
+              {isLoading ? <Loader2 className="animate-spin" /> : null}
               {isLast ? "Lihat Rekomendasi" : "Selanjutnya"}
             </Button>
+            {result ? (
+              <Button variant="outline" onClick={handleReset}>
+                Reset
+              </Button>
+            ) : null}
           </div>
         </div>
       ) : null}
