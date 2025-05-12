@@ -40,11 +40,16 @@ const handler = (req: NextApiRequest, res: NextApiResponse) => {
 
     body.items.forEach((item) => {
       const index = expertsData.findIndex((e) => e.id === item.id);
-      const answer = expertsData[index].data.find((d) =>
+      const answer = expertsData[index].data.filter((d) =>
         item.selected.includes(d.label)
       );
-      if (answer && Object.hasOwn(answer, "platform")) {
-        platformResults = [...platformResults, ...answer.platform];
+
+      if (answer.length && answer.some((a) => a.platform?.length)) {
+        let answerPlatforms: (typeof answer)[number]["platform"] = [];
+        answer.forEach((a) => {
+          answerPlatforms = [...answerPlatforms, ...a.platform];
+        });
+        platformResults = [...platformResults, ...answerPlatforms];
       }
     });
 
