@@ -82,7 +82,7 @@
         "id": "youtube",
         "label": "YouTube",
         "platform": [],
-        "result": "Fokus pada konten profesional dan studi kasus.",
+        "result": "Fokus pada konten video berkualitas dan storytelling menarik.",
         "details": [
           "Skippable In-Stream Ads: Iklan video yang bisa dilewati setelah 5 detik.",
           "Non-Skippable In-Stream Ads: Iklan video yang tidak bisa dilewati (durasi maksimal 15 detik).",
@@ -196,7 +196,7 @@
   {
     "id": "tujuan",
     "question": "Apa tujuan utama dari kampanye iklan Anda?",
-    "type": "multiple",
+    "type": "single",
     "data": [
       {
         "label": "Brand Awareness",
