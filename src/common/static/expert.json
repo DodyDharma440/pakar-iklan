@@ -127,7 +127,8 @@
         "label": "Dewasa (30-45)",
         "platform": [
           { "name": "facebook", "score": 1 },
-          { "name": "linkedin", "score": 1 }
+          { "name": "linkedin", "score": 1 },
+          { "name": "google-ads", "score": 1 }
         ],
         "result": "Gunakan konten edukatif dan profesional."
       },
@@ -135,7 +136,8 @@
         "label": "Profesional (45+)",
         "platform": [
           { "name": "linkedin", "score": 1 },
-          { "name": "email-marketing", "score": 1 }
+          { "name": "email-marketing", "score": 1 },
+          { "name": "google-ads", "score": 1 }
         ],
         "result": "Gunakan konten formal dan data-driven."
       },
