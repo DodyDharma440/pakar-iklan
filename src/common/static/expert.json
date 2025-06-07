@@ -64,21 +64,6 @@
         ]
       },
       {
-        "id": "linkedin",
-        "label": "LinkedIn",
-        "platform": [],
-        "result": "Fokus pada konten profesional dan studi kasus.",
-        "details": [
-          "Sponsored Content (Feed): Konten promosi yang muncul di linimasa LinkedIn.",
-          "Message Ads (Inbox): Iklan dalam bentuk pesan langsung ke inbox pengguna.",
-          "Conversation Ads: Versi interaktif dari Message Ads dengan pilihan respon.",
-          "Text Ads (Sidebar): Iklan teks kecil yang muncul di sisi kanan layar desktop.",
-          "Dynamic Ads: Iklan yang menyesuaikan secara otomatis dengan data pengguna.",
-          "Video Ads: Iklan berbentuk video yang muncul di feed.",
-          "Carousel Ads: Iklan dengan beberapa slide yang dapat digeser."
-        ]
-      },
-      {
         "id": "youtube",
         "label": "YouTube",
         "platform": [],
@@ -92,13 +77,6 @@
           "In-Feed Video Ads: Iklan video yang muncul di hasil pencarian atau beranda YouTube.",
           "Masthead Ads: Iklan banner besar di bagian atas homepage YouTube."
         ]
-      },
-      {
-        "id": "email-marketing",
-        "label": "Email Marketing",
-        "platform": [],
-        "result": "Fokus pada kampanye email yang dipersonalisasi dengan segmentasi audiens untuk meningkatkan engagement dan konversi.",
-        "details": []
       }
     ]
   },
@@ -127,18 +105,13 @@
         "label": "Dewasa (30-45)",
         "platform": [
           { "name": "facebook", "score": 1 },
-          { "name": "linkedin", "score": 1 },
           { "name": "google-ads", "score": 1 }
         ],
         "result": "Gunakan konten edukatif dan profesional."
       },
       {
         "label": "Profesional (45+)",
-        "platform": [
-          { "name": "linkedin", "score": 1 },
-          { "name": "email-marketing", "score": 1 },
-          { "name": "google-ads", "score": 1 }
-        ],
+        "platform": [{ "name": "google-ads", "score": 1 }],
         "result": "Gunakan konten formal dan data-driven."
       },
       {
@@ -187,7 +160,6 @@
           { "name": "instagram", "score": 1 },
           { "name": "tiktok", "score": 1 },
           { "name": "google-ads", "score": 1 },
-          { "name": "linkedin", "score": 1 },
           { "name": "facebook", "score": 1 },
           { "name": "youtube", "score": 1 }
         ],
@@ -231,14 +203,6 @@
           { "name": "facebook", "score": 2 }
         ],
         "result": "Gunakan iklan berbayar dengan link langsung dan optimasi SEO."
-      },
-      {
-        "label": "Lead Generation",
-        "platform": [
-          { "name": "linkedin", "score": 2 },
-          { "name": "email-marketing", "score": 2 }
-        ],
-        "result": "Gunakan form interaktif dan insentif seperti diskon/e-book."
       }
     ]
   }
